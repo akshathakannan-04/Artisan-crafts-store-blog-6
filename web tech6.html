@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Akshatha's Artisan Crafts</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f1ff;
+    color: #34264b;
+    line-height: 1.5;
+}
+
+header {
+    background: #7045c8;
+    color: white;
+    padding: 15px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+header h2 {
+    font-size: 19px;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #ffe6a7;
+}
+
+main {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px 0;
+}
+
+.hero {
+    background: linear-gradient(120deg, #e5d7ff, #fff0e6);
+    border-radius: 15px;
+    padding: 35px 20px;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    color: #563394;
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+
+.hero p {
+    margin-bottom: 15px;
+}
+
+.hero-art {
+    font-size: 60px;
+    margin: 12px;
+}
+
+button {
+    background: #7546cf;
+    color: white;
+    border: none;
+    padding: 9px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 3px;
+}
+
+button:hover {
+    background: #50308f;
+}
+
+section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: #563394;
+}
+
+.subtitle {
+    color: #786b89;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.filter {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd0f3;
+    border-radius: 6px;
+    background: white;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card, .panel {
+    background: white;
+    border-radius: 11px;
+    padding: 16px;
+    box-shadow: 0 3px 12px #ded2ef;
+}
+
+.card {
+    text-align: center;
+    border-bottom: 4px solid #d9c7ff;
+}
+
+.craft-icon {
+    background: #eee5ff;
+    border-radius: 8px;
+    font-size: 55px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    color: #6540aa;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 13px;
+    color: #756c80;
+    margin: 7px 0;
+}
+
+.price {
+    color: #7143c4;
+    font-weight: bold;
+}
+
+.panel {
+    margin-bottom: 18px;
+}
+
+.tutorial {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+}
+
+#tutorialText {
+    background: #f5efff;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 15px 0;
+    min-height: 75px;
+}
+
+.progress {
+    background: #e5daf7;
+    height: 7px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressBar {
+    background: #7546cf;
+    width: 0%;
+    height: 100%;
+    transition: width 0.3s;
+}
+
+.quiz-question {
+    margin: 12px 0;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.quiz-options button {
+    text-align: left;
+    background: #eee6ff;
+    color: #45305f;
+}
+
+.quiz-options button:hover {
+    background: #d9c6ff;
+}
+
+#quizResult, #timerDisplay, #tutorialStatus {
+    color: #6841b2;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#timerDisplay {
+    font-size: 27px;
+}
+
+.center {
+    text-align: center;
+}
+
+footer {
+    background: #302047;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+}
+
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 450px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>🧶 Akshatha's Artisan Crafts</h2>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#crafts">Crafts</a>
+        <a href="#tutorial">DIY Tutorial</a>
+        <a href="#quiz">Craft Quiz</a>
+        <a href="#timer">Timer</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="home">
+        <h1>Create Something Beautiful!</h1>
+        <p>Discover handmade treasures and learn the joy of DIY crafting.</p>
+        <button onclick="goToCrafts()">Explore Crafts →</button>
+        <div class="hero-art">🧵 🪡 🎨 🧶</div>
+        <p>Handmade with love, crafted with creativity!</p>
+    </section>
+
+    <section id="crafts">
+        <h2 class="section-title">🌸 Explore Our Crafts</h2>
+        <p class="subtitle">Choose your favourite handmade creation.</p>
+
+        <div class="filter">
+            <input type="text" id="search"
+                   placeholder="Search crafts..."
+                   onkeyup="filterCrafts()">
+
+            <select id="category" onchange="filterCrafts()">
+                <option value="All">All Categories</option>
+                <option value="Decor">Home Decor</option>
+                <option value="Jewellery">Jewellery</option>
+                <option value="Art">Art and Gifts</option>
+            </select>
+        </div>
+
+        <div class="products" id="productList">
+
+            <div class="card" data-category="Decor">
+                <div class="craft-icon">🏺</div>
+                <h3>Handmade Clay Pot</h3>
+                <p>Beautiful pottery for your home.</p>
+                <div class="price">₹250</div>
+                <button onclick="addToCart('Handmade Clay Pot',250)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="card" data-category="Jewellery">
+                <div class="craft-icon">📿</div>
+                <h3>Beaded Necklace</h3>
+                <p>Colourful jewellery made with care.</p>
+                <div class="price">₹180</div>
+                <button onclick="addToCart('Beaded Necklace',180)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="card" data-category="Art">
+                <div class="craft-icon">🖼️</div>
+                <h3>Canvas Painting</h3>
+                <p>Artistic designs for your space.</p>
+                <div class="price">₹450</div>
+                <button onclick="addToCart('Canvas Painting',450)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="card" data-category="Decor">
+                <div class="craft-icon">🕯️</div>
+                <h3>Decorative Candle</h3>
+                <p>Add warmth to any room.</p>
+                <div class="price">₹150</div>
+                <button onclick="addToCart('Decorative Candle',150)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="card" data-category="Jewellery">
+                <div class="craft-icon">💍</div>
+                <h3>Handmade Bracelet</h3>
+                <p>A charming accessory for every day.</p>
+                <div class="price">₹120</div>
+                <button onclick="addToCart('Handmade Bracelet',120)">
+                    Add to Cart
+                </button>
+            </div>
+
+            <div class="card" data-category="Art">
+                <div class="craft-icon">🎁</div>
+                <h3>Artisan Gift Box</h3>
+                <p>A thoughtful handmade gift.</p>
+                <div class="price">₹200</div>
+                <button onclick="addToCart('Artisan Gift Box',200)">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+
+        <div class="panel">
+            <h3>🛍️ Your Craft Basket (<span id="cartCount">0</span>)</h3>
+            <p id="cartItems">Your basket is empty.</p>
+            <p><strong>Total: ₹<span id="total">0</span></strong></p>
+            <button onclick="clearCart()">Clear Basket</button>
+            <p id="cartMessage"></p>
+        </div>
+    </section>
+
+    <section id="tutorial" class="panel tutorial">
+        <h2 class="section-title">🧵 DIY Craft Tutorial</h2>
+        <p class="subtitle">Learn to create a colourful handmade bracelet.</p>
+
+        <h3 id="stepTitle">Step 1 of 4</h3>
+        <div id="tutorialText">
+            Collect colourful beads, elastic thread and scissors.
+        </div>
+
+        <div class="progress">
+            <div id="progressBar"></div>
+        </div>
+
+        <p id="tutorialStatus">Ready to begin your craft journey!</p>
+
+        <button onclick="previousStep()">← Previous</button>
+        <button onclick="nextStep()">Next Step →</button>
+        <button onclick="resetTutorial()">Restart</button>
+    </section>
+
+    <section id="quiz" class="panel">
+        <h2 class="section-title">🧠 Craft Knowledge Quiz</h2>
+        <p class="subtitle">Test what you know about handmade crafts.</p>
+
+        <h3 id="questionNumber">Question 1 of 3</h3>
+        <p class="quiz-question" id="questionText">
+            Which material is commonly used to make a beaded bracelet?
+        </p>
+
+        <div class="quiz-options" id="quizOptions"></div>
+
+        <p id="quizResult">Score: 0</p>
+        <button onclick="nextQuestion()">Next Question →</button>
+        <button onclick="restartQuiz()">Restart Quiz</button>
+    </section>
+
+    <section id="timer" class="panel center">
+        <h2 class="section-title">⏱️ Craft Practice Timer</h2>
+        <p class="subtitle">Set aside some time for creativity!</p>
+
+        <div id="timerDisplay">01:00</div>
+
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause</button>
+        <button onclick="resetTimer()">Reset</button>
+
+        <p id="timerStatus">Ready to craft!</p>
+    </section>
+
+</main>
+
+<footer>
+    <h3>🧶 Akshatha's Artisan Crafts</h3>
+    <p>Celebrate creativity. Support handmade. Spread happiness.</p>
+    <p>© 2026 Akshatha's Artisan Crafts</p>
+</footer>
+
+<script>
+// Navigation
+function goToCrafts() {
+    document.getElementById("crafts").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+// Product search and category filtering
+function filterCrafts() {
+    let search = document.getElementById("search")
+        .value.toLowerCase();
+    let category = document.getElementById("category").value;
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+        let name = card.querySelector("h3").innerText.toLowerCase();
+        let categoryMatch = category === "All" ||
+            card.dataset.category === category;
+        let searchMatch = name.includes(search);
+
+        card.style.display = categoryMatch && searchMatch
+            ? "block" : "none";
+    });
+}
+
+// Shopping basket
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cart.push({name: name, price: price});
+    total += price;
+
+    document.getElementById("cartCount").innerText = cart.length;
+    document.getElementById("total").innerText = total;
+
+    let output = "";
+    cart.forEach(function(item, index) {
+        output += (index + 1) + ". " + item.name +
+            " - ₹" + item.price + "<br>";
+    });
+
+    document.getElementById("cartItems").innerHTML = output;
+    document.getElementById("cartMessage").innerText =
+        name + " added to your basket!";
+}
+
+function clearCart() {
+    cart = [];
+    total = 0;
+
+    document.getElementById("cartCount").innerText = 0;
+    document.getElementById("total").innerText = 0;
+    document.getElementById("cartItems").innerText =
+        "Your basket is empty.";
+    document.getElementById("cartMessage").innerText =
+        "Basket cleared successfully!";
+}
+
+// DIY tutorial steps
+let step = 0;
+
+let steps = [
+    "Collect colourful beads, elastic thread and scissors.",
+    "Measure the elastic thread around your wrist and cut it.",
+    "Carefully thread the beads in your favourite pattern.",
+    "Tie a secure knot, trim the extra thread and enjoy your bracelet!"
+];
+
+function showStep() {
+    document.getElementById("stepTitle").innerText =
+        "Step " + (step + 1) + " of " + steps.length;
+
+    document.getElementById("tutorialText").innerText = steps[step];
+
+    document.getElementById("progressBar").style.width =
+        ((step + 1) / steps.length * 100) + "%";
+
+    document.getElementById("tutorialStatus").innerText =
+        step === steps.length - 1
+        ? "Tutorial complete! Your bracelet is ready."
+        : "Follow the instructions and continue crafting.";
+}
+
+function nextStep() {
+    if (step < steps.length - 1) {
+        step++;
+        showStep();
+    } else {
+        document.getElementById("tutorialStatus").innerText =
+            "You have completed the tutorial!";
+    }
+}
+
+function previousStep() {
+    if (step > 0) {
+        step--;
+        showStep();
+    }
+}
+
+function resetTutorial() {
+    step = 0;
+    showStep();
+}
+
+// Craft quiz
+let questions = [
+    {
+        question: "Which material is commonly used to make a beaded bracelet?",
+        options: ["Beads", "Sand", "Leaves only"],
+        answer: 0
+    },
+    {
+        question: "Which tool is useful for cutting craft paper?",
+        options: ["Spoon", "Scissors", "Cup"],
+        answer: 1
+    },
+    {
+        question: "Which material is commonly used for pottery?",
+        options: ["Clay", "Cotton", "Glass of water"],
+        answer: 0
+    }
+];
+
+let qIndex = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion() {
+    answered = false;
+
+    document.getElementById("questionNumber").innerText =
+        "Question " + (qIndex + 1) + " of " + questions.length;
+
+    document.getElementById("questionText").innerText =
+        questions[qIndex].question;
+
+    document.getElementById("quizResult").innerText =
+        "Score: " + score;
+
+    let output = "";
+
+    questions[qIndex].options.forEach(function(option, index) {
+        output += '<button onclick="checkAnswer(' + index + ')">' +
+            option + '</button>';
+    });
+
+    document.getElementById("quizOptions").innerHTML = output;
+}
+
+function checkAnswer(selected) {
+    if (answered) return;
+    answered = true;
+
+    if (selected === questions[qIndex].answer) {
+        score++;
+        document.getElementById("quizResult").innerText =
+            "Correct answer! 🎉 Score: " + score;
+    } else {
+        document.getElementById("quizResult").innerText =
+            "Not quite! The correct answer is " +
+            questions[qIndex].options[questions[qIndex].answer] +
+            ". Score: " + score;
+    }
+}
+
+function nextQuestion() {
+    if (qIndex < questions.length - 1) {
+        qIndex++;
+        showQuestion();
+    } else {
+        document.getElementById("questionText").innerText =
+            "Quiz completed! Your final score is " + score +
+            " out of " + questions.length + ".";
+        document.getElementById("questionNumber").innerText =
+            "Well done!";
+        document.getElementById("quizOptions").innerHTML = "";
+        document.getElementById("quizResult").innerText =
+            "Final Score: " + score + "/" + questions.length;
+    }
+}
+
+function restartQuiz() {
+    qIndex = 0;
+    score = 0;
+    showQuestion();
+}
+
+// Practice timer
+let seconds = 60;
+let timerId = null;
+
+function updateTimer() {
+    let mins = Math.floor(seconds / 60);
+    let secs = seconds % 60;
+
+    document.getElementById("timerDisplay").innerText =
+        String(mins).padStart(2, "0") + ":" +
+        String(secs).padStart(2, "0");
+}
+
+function startTimer() {
+    if (timerId !== null || seconds <= 0) return;
+
+    document.getElementById("timerStatus").innerText =
+        "Happy crafting!";
+
+    timerId = setInterval(function() {
+        seconds--;
+        updateTimer();
+
+        if (seconds <= 0) {
+            clearInterval(timerId);
+            timerId = null;
+            document.getElementById("timerStatus").innerText =
+                "Time is up! Great work!";
+        }
+    }, 1000);
+}
+
+function pauseTimer() {
+    if (timerId !== null) {
+        clearInterval(timerId);
+        timerId = null;
+        document.getElementById("timerStatus").innerText =
+            "Timer paused.";
+    }
+}
+
+function resetTimer() {
+    if (timerId !== null) {
+        clearInterval(timerId);
+        timerId = null;
+    }
+
+    seconds = 60;
+    updateTimer();
+
+    document.getElementById("timerStatus").innerText =
+        "Timer reset. Ready to craft!";
+}
+
+// Initialise page
+showStep();
+showQuestion();
+updateTimer();
+</script>
+
+</body>
+</html>
